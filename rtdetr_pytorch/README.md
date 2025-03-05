@@ -107,10 +107,3 @@ python tools/export_onnx.py -c configs/rtdetr/rtdetr_r18vd_6x_coco.yml -r path/t
 
 2. add `-t path/to/checkpoint` (optinal) to tuning rtdetr based on pretrained checkpoint. see [training script details](./tools/README.md).
 </details>
-=======
-# RTDETR-MOT-VD
-RTDETR-MOT-VEHICLE-DAMAGES-DETECTION
-
-https://github.com/user-attachments/assets/f0d46dab-32a8-4c7d-9f93-815c1a3de953
-
-Comming soon.
