@@ -1,0 +1,52 @@
+__include__: [
+  '../dataset/coco_detection.yml',
+  '../runtime.yml',
+  './include/dataloader.yml',
+  './include/optimizer.yml',
+  './include/rtdetr_r50vd.yml',
+]
+
+PResNet:
+  depth: 101
+
+SwinTransformer:
+  img_size: 672
+  embed_dim: 96
+  depths: [2, 2, 6, 2]
+  num_heads: [3, 6, 12, 24]
+  in_chans: 3
+  num_classes: 2
+  window_size: 7
+
+HybridEncoder:
+  # intra
+  in_channels: [192, 384, 768]
+  hidden_dim: 256
+  dim_feedforward: 768
+  eval_spatial_size: [672, 672]
+
+
+RTDETRTransformer:
+  feat_channels: [256, 256, 256]
+  eval_spatial_size: [672, 672]
+
+
+optimizer:
+  type: AdamW
+  params: 
+    - 
+      params: 'backbone'
+      lr: 0.000001
+
+RTDETR:
+  backbone: SwinTransformer
+  #backbone: PResNet
+  encoder: HybridEncoder
+  decoder: RTDETRTransformer
+  multi_scale: [672]
+  #multi_scale: [480, 512, 544, 576, 608, 640, 640, 640, 672, 704, 736, 768, 800]
+  
+
+output_dir: 'rtdetr_101vd_6x_swin_0'
+
+epoches: 100

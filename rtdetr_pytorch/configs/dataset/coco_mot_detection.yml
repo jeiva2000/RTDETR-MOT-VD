@@ -1,0 +1,41 @@
+task: detection
+
+num_classes: 1 #2 #1 #2 #1 #2 #2 #damages #1 dancetrack #2
+#remap_mscoco_category: True
+
+train_dataloader: 
+  type: DataLoader
+  dataset: 
+    type: MotCocoDetection
+    #img_folder: /data/backup/serperzar/mot/dataset_mot_damages_v5/train/
+    #ann_file: /data/backup/serperzar/mot/dataset_mot_coco_format_v5/annotations/instances_train.json
+    img_folder: /data/backup/serperzar/mot/dancetrack/mot_dataset/train
+    ann_file: /data/backup/serperzar/mot/aux_dancetrack/annotations/instances_train.json
+    transforms:
+      type: Compose
+      ops: ~
+    range: 6 #10 #dancetrack #4 #10Cambiado para velocidad
+  shuffle: True
+  batch_size: 1
+  num_workers: 4
+  drop_last: True 
+
+
+val_dataloader:
+  type: DataLoader
+  dataset: 
+    type: MotCocoDetection
+    #img_folder: /data/backup/serperzar/mot/dataset_mot_damages_v5/val/
+    #ann_file: /data/backup/serperzar/mot/dataset_mot_coco_format_v5/annotations/instances_val.json
+    #img_folder: /data/backup/serperzar/mot/dataset_mot_damages_v5/test/
+    #ann_file: /data/backup/serperzar/mot/dataset_mot_coco_format_v5/annotations/instances_test.json
+    img_folder: /data/backup/serperzar/mot/dancetrack/mot_dataset/val/
+    ann_file: /data/backup/serperzar/mot/aux_dancetrack/annotations/instances_val.json
+    transforms:
+      type: Compose
+      ops: ~ 
+    range: 6 #10 #4 #10
+  shuffle: False
+  batch_size: 1
+  num_workers: 4
+  drop_last: False

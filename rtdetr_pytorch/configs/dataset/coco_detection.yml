@@ -1,0 +1,58 @@
+task: detection
+
+num_classes: 80
+remap_mscoco_category: True
+
+train_dataloader: 
+  type: DataLoader
+  dataset: 
+    type: CocoDetection
+    #img_folder: ./dataset/coco/train2017/
+    #ann_file: ./dataset/coco/annotations/instances_train2017.json
+    img_folder: /data/backup/serperzar/coco_v2_qcs/train/
+    ann_file: /data/backup/serperzar/coco_v2_qcs/instances_train2017.json
+    #img_folder: /data/backup/serperzar/coco_v4_type_paint/train_coco_class
+    #ann_file: /data/backup/serperzar/coco_v4_type_paint/train_coco_class.json
+    #img_folder: /data/backup/serperzar/coco_v4_crop_type_paint_random/train_coco_class_random
+    #ann_file: /data/backup/serperzar/coco_v4_crop_type_paint_random/train_coco_class_random.json
+    #img_folder: /data/backup/serperzar/coco_v4_crop_intensity_paint_random/train_coco_class_random
+    #ann_file: /data/backup/serperzar/coco_v4_crop_intensity_paint_random/train_coco_class_random.json
+    #img_folder: /data/backup/serperzar/coco_v4_crop_intensity_paint_random_all_classes/train_coco_class_random
+    #ann_file: /data/backup/serperzar/coco_v4_crop_intensity_paint_random_all_classes/train_coco_class_random.json
+    #img_folder: /data/backup/serperzar/mot/dancetrack/train1
+    #ann_file: /data/backup/serperzar/mot/dataset_dancetrack_coco_format/annotations/instances_train.json
+    transforms:
+      type: Compose
+      ops: ~
+  shuffle: True
+  batch_size: 8
+  num_workers: 4
+  drop_last: True 
+
+
+val_dataloader:
+  type: DataLoader
+  dataset: 
+    type: CocoDetection
+    #img_folder: ./dataset/coco/val2017/
+    #ann_file: ./dataset/coco/annotations/instances_val2017.json
+    img_folder: /data/backup/serperzar/coco_v2_qcs/val/
+    ann_file: /data/backup/serperzar/coco_v2_qcs/instances_val2017.json
+    #img_folder : /data/backup/serperzar/coco_v2_qcs/test/
+    #ann_file: /data/backup/serperzar/coco_v2_qcs/instances_test2017.json
+    #img_folder: /data/backup/serperzar/coco_v4_type_paint/val_coco_class
+    #ann_file: /data/backup/serperzar/coco_v4_type_paint/val_coco_class.json
+    #img_folder: /data/backup/serperzar/coco_v4_crop_type_paint_random/val_coco_class_random
+    #ann_file: /data/backup/serperzar/coco_v4_crop_type_paint_random/val_coco_class_random.json
+    #img_folder: /data/backup/serperzar/coco_v4_crop_intensity_paint_random/val_coco_class_random
+    #ann_file: /data/backup/serperzar/coco_v4_crop_intensity_paint_random/val_coco_class_random.json
+    #img_folder: /data/backup/serperzar/coco_v4_crop_intensity_paint_random_all_classes/val_coco_class_random
+    #ann_file: /data/backup/serperzar/coco_v4_crop_intensity_paint_random_all_classes/val_coco_class_random.json
+    transforms:
+      type: Compose
+      ops: ~ 
+
+  shuffle: False
+  batch_size: 8
+  num_workers: 4
+  drop_last: False

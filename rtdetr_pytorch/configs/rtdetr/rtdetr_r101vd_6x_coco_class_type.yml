@@ -1,0 +1,45 @@
+__include__: [
+  '../dataset/coco_detection.yml',
+  '../runtime.yml',
+  './include/dataloader.yml',
+  './include/optimizer.yml',
+  './include/rtdetr_r50vd.yml',
+]
+
+#num_classes: 8
+#num_classes: 4
+#num_classes: 2
+#num_classes: 4
+num_classes: 5
+#remap_mscoco_category: False esto se coloca en true cuando el formato no es coco
+
+PResNet:
+  depth: 101
+
+
+HybridEncoder:
+  # intra
+  hidden_dim: 384
+  dim_feedforward: 2048
+
+
+RTDETRTransformer:
+  feat_channels: [384, 384, 384]
+
+
+optimizer:
+  type: AdamW
+  params: 
+    - 
+      params: 'backbone'
+      lr: 0.000001
+
+#output_dir: 'rtdetr_101vd_6x_dataset_v4_class_type_crop_paint'
+#output_dir: 'rtdetr_101vd_6x_dataset_v4_class_type_paint'
+#output_dir: 'rtdetr_101vd_6x_dataset_v4_class_intensity_crop_paint_random_loss_labels_1'
+output_dir: 'rtdetr_101vd_6x_dataset_v4_class_intensity_crop_paint_random__all_classes_loss_labels_5'
+epoches: 30
+
+SetCriterion:
+  weight_dict: {loss_labels: 5, loss_bbox: 5, loss_giou: 2}
+#probar con los_vfl:5
