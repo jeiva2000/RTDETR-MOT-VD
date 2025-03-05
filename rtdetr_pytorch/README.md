@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## TODO
 <details>
 <summary> see details </summary>
