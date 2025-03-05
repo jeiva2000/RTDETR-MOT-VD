@@ -114,5 +114,3 @@ RTDETR-MOT-VEHICLE-DAMAGES-DETECTION
 https://github.com/user-attachments/assets/f0d46dab-32a8-4c7d-9f93-815c1a3de953
 
 Comming soon.
-
->>>>>>> 5440edfcfc15fe2ec6fed323ba57f09e97e122e7
