@@ -1,7 +1,7 @@
 """by lyuwenyu
 """
 from .rtdetr import *
-from .rtdetr_mot_v3 import *
+from .rtdetr_mot import *
 from .hybrid_encoder import *
 from .rtdetr_decoder import *
 from .rtdetr_decoder_mot_v4_plus_2 import *
