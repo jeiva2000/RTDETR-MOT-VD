@@ -92,6 +92,11 @@ class RTDETR_MOT(nn.Module):
         x = self.encoder(x)
         x, track_queries = self.decoder(x,targets,track_queries)
         return x, track_queries
+   
+    @torch.no_grad()
+    def forward_inference_2(self, x, track_queries, ind_track=True, n_frame=None, h_limit=None):
+        fx, track_queries = self.forward_single(x,None,track_queries,limit=10,ind_track=ind_track,n_frame=n_frame, h_limit=h_limit)
+        return fx, track_queries
 
     def deploy(self, ):
         self.eval()
