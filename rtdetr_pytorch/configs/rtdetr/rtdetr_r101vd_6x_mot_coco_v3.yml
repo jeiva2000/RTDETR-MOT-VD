@@ -8,11 +8,11 @@ __include__: [
 
 num_classes: 2
 
-model: RTDETR_MOT_v2
+model: RTDETR_MOT
 criterion: SetCriterion
 postprocessor: RTDETRPostProcessor
 
-RTDETR_MOT_v2:
+RTDETR_MOT:
   backbone: PResNet
   encoder: HybridEncoder
   decoder: RTDETRTransformerMOT_v2
