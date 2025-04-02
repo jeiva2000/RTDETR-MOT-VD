@@ -178,7 +178,7 @@ def main(args):
             old_size, img = reader(os.path.join(args.video_path,folder,img_name))
             img = img.to(device)
             size = torch.tensor([[old_size[0], old_size[1]]]).to(device)
-            det_embeds, output_det, output_track, aux_outputs_track, ids, track_queries, delete, segs, pred_masks = model(img, track_queries, size)
+            det_embeds, output_det, output_track, aux_outputs_track, ids, track_queries, delete = model(img, track_queries, size)
             pred_dicts[folder][img_name] = {'embeds':det_embeds.detach().cpu().numpy(),'ious':generalized_box_iou(output_det[1].squeeze(0),output_det[1].squeeze(0)).detach().cpu().numpy(),
             'boxes':output_det[1].detach().cpu().numpy(),'scores':output_det[2].detach().cpu().numpy()}
             im = reader.pil_img
