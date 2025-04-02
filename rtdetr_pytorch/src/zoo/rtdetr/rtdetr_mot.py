@@ -83,7 +83,7 @@ class RTDETR_MOT(nn.Module):
           else:
              return outputs
 
-    def forward_single(self, x, targets=None,track_queries=None):
+    def forward_single(self, x, targets=None,track_queries=None,limit=2,ind_track=True):
         if self.multi_scale and self.training:
            sz = np.random.choice(self.multi_scale)
            #print("x shape:",x.shape)
@@ -95,7 +95,7 @@ class RTDETR_MOT(nn.Module):
    
     @torch.no_grad()
     def forward_inference_2(self, x, track_queries, ind_track=True, n_frame=None, h_limit=None):
-        fx, track_queries = self.forward_single(x,None,track_queries,limit=10,ind_track=ind_track,n_frame=n_frame, h_limit=h_limit)
+        fx, track_queries = self.forward_single(x,None,track_queries,limit=10,ind_track=ind_track)
         return fx, track_queries
 
     def deploy(self, ):
