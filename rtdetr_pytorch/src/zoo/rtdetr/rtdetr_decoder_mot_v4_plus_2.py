@@ -411,8 +411,8 @@ class RTDETRTransformerMOT_v2(RTDETRTransformer):
                          num_denoising,label_noise_ratio,box_noise_scale,learnt_init_query,
                          eval_spatial_size,eval_idx,eps,aux_loss)
         self.mode = 0
-        self.use_qim = False #True #Pendientee de esta partee
-        self.use_reid = False #True #False #True
+        self.use_qim = True
+        self.use_reid = False
         decoder_layer = TransformerDecoderLayer(hidden_dim, nhead, dim_feedforward, dropout, activation, num_levels, num_decoder_points)
         self.decoder = TransformerDecoderMOT_v2(hidden_dim, decoder_layer, num_decoder_layers, eval_idx)
 
