@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 from torchvision.transforms import transforms
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 import sys
 sys.path.append("..")
 from src.core import YAMLConfig
@@ -196,7 +196,7 @@ def main(args):
                    print("score det:",scr)
                    print("box:",box)
                    xmin, ymin, xmax, ymax = int(box[0]), int(box[1]), int(box[2]), int(box[3])
-                   draw.rectangle(list(box), outline='blue',)
+                   draw.rectangle(list(box), outline='blue',width=3)
                    #draw.text((box[0], box[1]-30), text=str(scr), fill='blue', )
                    count_boxes+=1
 
@@ -225,9 +225,10 @@ def main(args):
                    #print('id:',str(ids[i]))
                    #print("score track:",scr)
                    print('box track que paso el score:',box)
-                   draw.rectangle(list(box), outline='red',)
+                   draw.rectangle(list(box), outline='red', width=3)
                    #draw.text((box[0], box[1]-20), text=str(scr), fill='blue', )
-                   draw.text((box[0], box[1]-30), text=str(ids[i]), fill='blue', )
+                   font = ImageFont.truetype("fonts/Arial.ttf", 20)
+                   draw.text((box[0], box[1]-30), text=str(ids[i]), fill='blue', font=font)
                    valid_ids.append(str(ids[i]))
                    count_boxes+=1
                    #predictions.append([str(j+1),str(ids[i]),str(box[0]),str(box[1]),str(box[2]-box[0]),str(box[3]-box[1]),str(1),str(-1),str(-1),str(-1)])
