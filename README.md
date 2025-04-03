@@ -10,10 +10,11 @@ Download our dataset here: https://mega.nz/file/t6Y3WSKZ#nnb6Yr5RxgZRBQIrgBKD8Yd
 
 ## Training
 
-
+python tools/train.py -c configs/rtdetr/rtdetr_r101vd_6x_mot_coco_v3.yml
 
 ## Inference
 
+python infer_mot.py --config ../configs/rtdetr/rtdetr_r101vd_6x_mot_coco_v3.yml --ckpt model.pth
 
 Comming soon.
 
