@@ -6,7 +6,7 @@ https://github.com/user-attachments/assets/98014856-f404-4249-b6c6-9b6b20ce27c1
 
 
 ## Data
-Download our dataset here: https://mega.nz/file/t6Y3WSKZ#nnb6Yr5RxgZRBQIrgBKD8YdWlIjdLtxATgFriNwlYWU
+Download our dataset here: 
 
 ## Training
 
